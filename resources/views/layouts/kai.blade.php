@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="{{ asset('template') }}/assets/css/demo.css" />
   </head>
   <body>
-
+      @include('sweetalert::alert')
     <div class="wrapper">
         <!-- Sidebar -->
         <x-sidebar />
