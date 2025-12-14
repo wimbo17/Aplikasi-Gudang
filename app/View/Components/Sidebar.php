@@ -31,12 +31,16 @@ class Sidebar extends Component
                 'icon' => 'fas fa-chart-line',
                 'is_dropdown' => true,
                 'items' => [
-                [
-                        'label' => 'Kategori Produk',
-                        'route' => 'master-data.kategori-produk.index',
+                        [
+                                'label' => 'Kategori Produk',
+                                'route' => 'master-data.kategori-produk.index',
+                        ],
+                        [
+                                'label' => 'Data Produk',
+                                'route' => 'master-data.produk.index',
+                        ]
                 ]
-            ]
-                ],
+            ],
 
             ];
     }
