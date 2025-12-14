@@ -24,28 +24,21 @@ class Sidebar extends Component
                 'is_dropdown' => false,
 
             ],
-            // [
-            //     'label' => 'Master Data',
-            //     'route' => '#',
-            //     'is_active' => request()->routeIs('master-data.*'),
-            //     'icon' => 'fas fa-cloud',
-            //     'is_dropdown' => true,
-            //     'items' => [
-            //         [
-            //             'label' => 'Ketegori Produk',
-            //             'route' => 'master-data.kategori-produk.index',
-            //         ],
-            //         [
-            //             'label' => 'Data Produk',
-            //             'route' => 'master-data.produk.index',
-            //         ],
-            //         [
-            //             'label' => 'Stok Barang',
-            //             'route' => 'master-data.stok-barang.index',
-            //         ]
-            //     ]
-            // ],
-        ];
+            [
+                'label' => 'Master Data',
+                'route' => '#',
+                'is_active' => request()->routeIs('master-data'),
+                'icon' => 'fas fa-chart-line',
+                'is_dropdown' => true,
+                'items' => [
+                [
+                        'label' => 'Kategori Produk',
+                        'route' => 'master-data.kategori-produk.index',
+                ]
+            ]
+                ],
+
+            ];
     }
 
     /**
