@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\StokBarangController;
 use App\Http\Controllers\VarianProdukController;
 use App\Models\KategoriProduk;
 use Illuminate\Support\Facades\Auth;
@@ -27,5 +28,6 @@ Route::middleware('auth')->group(function(){
         Route::resource('kategori-produk', KategoriProdukController::class);
         Route::resource('produk', ProdukController::class);
         Route::resource('varian-produk', VarianProdukController::class)->only(['store', 'update', 'destroy']);
+        Route::resource('stok-barang', StokBarangController::class)->only('index');
     });
 });
