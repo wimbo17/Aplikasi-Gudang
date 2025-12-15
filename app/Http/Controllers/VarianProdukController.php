@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\storeVarianProdukRequest;
 use App\Http\Requests\updateVarianProdukRequest;
+use App\Models\KartuStok;
 use App\Models\VarianProduk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class VarianProdukController extends Controller
@@ -31,14 +33,14 @@ class VarianProdukController extends Controller
     public function update(updateVarianProdukRequest $request, $varian_produk)
     {
 
-        // $isAdjustment = false;
+        $isAdjustment = false;
         $varian = VarianProduk::findOrFail($varian_produk);
 
         // $existKenaikanHarga = LaporanKenaikanHarga::where('nomor_sku', $varian->nomor_sku)->where('is_confirmed', false)->first();
 
-        // if ($request->stk_varian != $varian->stk_varian) {
-        //     $isAdjustment = true;
-        // }
+        if ($request->stok_varian != $varian->stok_varian) {
+            $isAdjustment = true;
+        }
 
         $fileName = $varian->gambar_varian;
 
@@ -60,14 +62,14 @@ class VarianProdukController extends Controller
         //     ]);
         // }
 
-        // if ($isAdjustment) {
-        //     KartuStok::create([
-        //         'jenis_transaksi' => 'adjustment',
-        //         'nomor_sku' => $varian->nomor_sku,
-        //         'stok_akhir' => $request->stk_varian,
-        //         'petugas' => Auth::user()->name,
-        //     ]);
-        // }
+        if ($isAdjustment) {
+            KartuStok::create([
+                'jenis_transaksi' => 'adjustment',
+                'nomor_sku' => $varian->nomor_sku,
+                'stok_akhir' => $request->stok_varian,
+                'petugas' => Auth::user()->name,
+            ]);
+        }
 
         return response()->json([
             'message' => 'Data Berhasil Diupdate'
