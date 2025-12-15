@@ -20,18 +20,23 @@
                 </div>
                 {{-- Tempat looping semua data varian --}}
                 <div class="row mt-2">
-                    <div class="col-12">
-                        <div class="alert alert-info" style="box-shadow: none">
-                            <span>Belum ada varian produk,silahkan tambahkan varian yang baru</span>
+                    @forelse ($produk->varian as $item)
+                        <x-produk.card-varian :varian="$item" />
+                    @empty
+                        <div class="col-12">
+                            <div class="alert alert-info" style="box-shadow: none">
+                                <span>Belum ada varian produk,silahkan tambahkan varian yang baru</span>
+                            </div>
                         </div>
-                    </div>
+                    @endforelse
                 </div>
                 {{-- End looping semua data varian --}}
             </div>
         </div>
     </div>
+    <x-produk.form-varian />
 @endsection
-{{-- @push('script')
+@push('script')
     <script>
         $(document).ready(function() {
             let modalEl = $('#modalFormVarian');
@@ -49,7 +54,7 @@
             $(".btnEditVarian").on('click', function() {
                 let nama_varian = $(this).data('nama-varian');
                 let harga_varian = $(this).data('harga-varian');
-                let stk_varian = $(this).data('stk-varian');
+                let stok_varian = $(this).data('stok-varian');
                 let action = $(this).data('action');
 
                 $form[0].reset();
@@ -59,7 +64,7 @@
 
                 $form.find('input[name="nama_varian"]').val(nama_varian);
                 $form.find('input[name="harga_varian"]').val(harga_varian);
-                $form.find('input[name="stk_varian"]').val(stk_varian);
+                $form.find('input[name="stok_varian"]').val(stok_varian);
                 $form.find('small.text-danger').text('');
                 $('#modalFormVarian .modal-title').text('Edit Varian');
 
@@ -119,4 +124,4 @@
             });
         });
     </script>
-@endpush --}}
+@endpush
