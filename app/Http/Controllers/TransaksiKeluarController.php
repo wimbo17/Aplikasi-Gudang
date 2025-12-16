@@ -114,4 +114,27 @@ class TransaksiKeluarController extends Controller
             'redirect_url' => route('transaksi-keluar.create')
         ]);
     }
+
+    public function getTransaksiKeluar()
+    {
+        $search =  request()->query('search');
+        $transaksi = Transaksi::where('jenis_transaksi', 'pemasukan')
+            ->where('nomor_transaksi', 'like', '%' . $search . '%')
+            ->get()->map(function ($q) {
+                return [
+                    'id' => $q->id,
+                    'text' => $q->nomor_transaksi
+                ];
+            });;
+
+        return response()->json($transaksi);
+    }
+
+     public function getTransaksiKeluarItems($nomor_trsansaksi)
+    {
+        $transaksi =  Transaksi::with('items', 'items.varian')->where('nomor_transaksi', $nomor_trsansaksi)->first();
+        $transaksi->tanggal = Carbon::parse($transaksi->created_at)->locale('id')->translatedFormat('l, d F Y');
+
+        return response()->json($transaksi);
+    }
 }
