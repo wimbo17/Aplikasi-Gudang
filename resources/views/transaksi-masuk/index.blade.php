@@ -39,7 +39,7 @@
                     </form>
                 </div>
                 <div class="col-2">
-                    {{-- <x-form-export-laporan jenisTransaksi="pemasukan" /> --}}
+                    <x-form-export-laporan jenisTransaksi="pemasukan" />
                 </div>
             </div>
             <div>

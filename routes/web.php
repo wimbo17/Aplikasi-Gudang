@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExportLaporanTransaksiController;
 use App\Http\Controllers\KartuStokController;
 use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\ProdukController;
@@ -32,6 +33,10 @@ Route::middleware('auth')->group(function(){
         // Route::get('/transaksi-keluar', [TransaksiKeluarController::class, 'getTransaksiKeluar'])->name('transaksi-keluar');
         // Route::get('/transaksi-keluar/{nomor_trsansaksi}', [TransaksiKeluarController::class, 'getTransaksiKeluarItems'])->name('transaksi-keluar-items');
     });
+
+    Route::post('export-laporan-transaksi', [ExportLaporanTransaksiController::class, 'exportLaporanTransaksi'])->name('export-laporan-transaksi');
+    Route::post('export-laporan-kartu-stok', [KartuStokController::class, 'exportLaporan']);
+
 
 
     Route::prefix('master-data')->name('master-data.')->group(function (){
