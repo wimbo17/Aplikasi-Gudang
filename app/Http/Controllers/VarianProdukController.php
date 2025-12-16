@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\storeVarianProdukRequest;
 use App\Http\Requests\updateVarianProdukRequest;
 use App\Models\KartuStok;
+use App\Models\LaporanKenaikanHarga;
 use App\Models\VarianProduk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,37 +37,37 @@ class VarianProdukController extends Controller
         $isAdjustment = false;
         $varian = VarianProduk::findOrFail($varian_produk);
 
-        // $existKenaikanHarga = LaporanKenaikanHarga::where('nomor_sku', $varian->nomor_sku)->where('is_confirmed', false)->first();
+        $existKenaikanHarga = LaporanKenaikanHarga::where('nomor_sku', $varian->nomor_sku)->where('is_confirmed', false)->first();
 
-        if ($request->stok_varian != $varian->stok_varian) {
+        if ($request->stk_varian != $varian->stk_varian) {
             $isAdjustment = true;
         }
 
         $fileName = $varian->gambar_varian;
 
         if ($request->file('gambar_varian')) {
-            Storage::disk('public')->delete('varian-produk/' . $varian->gambar_varian);
+            Storage::disk('public')->delete('varian_produk/' . $varian->gambar_varian);
             $fileName = time() . '.' . $request->file('gambar_varian')->getClientOriginalExtension();
-            Storage::disk('public')->putFileAs('varian-produk', $request->file('gambar_varian'), $fileName);
+            Storage::disk('public')->putFileAs('varian_produk', $request->file('gambar_varian'), $fileName);
         }
         $varian->update([
             'nama_varian' => $request->nama_varian,
             'harga_varian' => $request->harga_varian,
-            'stok_varian' => $request->stok_varian,
+            'stk_varian' => $request->stk_varian,
             'gambar_varian' => $fileName,
         ]);
 
-        // if ($existKenaikanHarga && $request->harga_varian >= $existKenaikanHarga->harga_beli) {
-        //     $existKenaikanHarga->update([
-        //         'is_confirmed' => true
-        //     ]);
-        // }
+        if ($existKenaikanHarga && $request->harga_varian >= $existKenaikanHarga->harga_beli) {
+            $existKenaikanHarga->update([
+                'is_confirmed' => true
+            ]);
+        }
 
         if ($isAdjustment) {
             KartuStok::create([
                 'jenis_transaksi' => 'adjustment',
                 'nomor_sku' => $varian->nomor_sku,
-                'stok_akhir' => $request->stok_varian,
+                'stok_akhir' => $request->stk_varian,
                 'petugas' => Auth::user()->name,
             ]);
         }

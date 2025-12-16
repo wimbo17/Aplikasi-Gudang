@@ -40,12 +40,12 @@ Route::middleware('auth')->group(function(){
 
     Route::post('export-laporan-kartu-stok', [KartuStokController::class, 'exportLaporan']);
 
-    Route::resource('laporan-kenaikan-harga' , LaporanKenaikanHargaController::class)->only(['index', 'update', 'destroy']);
+    Route::resource('laporan-kenaikan-harga' , LaporanKenaikanHargaController::class)->only(['index', 'update']);
 
     Route::prefix('master-data')->name('master-data.')->group(function (){
         Route::resource('kategori-produk', KategoriProdukController::class);
         Route::resource('produk', ProdukController::class);
-        Route::resource('varian-produk', VarianProdukController::class)->only(['store', 'update']);
+        Route::resource('varian-produk', VarianProdukController::class)->only(['store', 'update', 'destroy']);
         Route::resource('stok-barang', StokBarangController::class)->only('index');
     });
 
