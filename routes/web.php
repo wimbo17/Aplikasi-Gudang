@@ -3,11 +3,13 @@
 use App\Http\Controllers\ExportLaporanTransaksiController;
 use App\Http\Controllers\KartuStokController;
 use App\Http\Controllers\KategoriProdukController;
+use App\Http\Controllers\LaporanKenaikanHargaController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\StokBarangController;
 use App\Http\Controllers\TransaksiMasukController;
 use App\Http\Controllers\VarianProdukController;
 use App\Models\KategoriProduk;
+use App\Models\LaporanKenaikanHarga;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -35,14 +37,15 @@ Route::middleware('auth')->group(function(){
     });
 
     Route::post('export-laporan-transaksi', [ExportLaporanTransaksiController::class, 'exportLaporanTransaksi'])->name('export-laporan-transaksi');
+
     Route::post('export-laporan-kartu-stok', [KartuStokController::class, 'exportLaporan']);
 
-
+    Route::resource('laporan-kenaikan-harga' , LaporanKenaikanHargaController::class)->only(['index', 'update', 'destroy']);
 
     Route::prefix('master-data')->name('master-data.')->group(function (){
         Route::resource('kategori-produk', KategoriProdukController::class);
         Route::resource('produk', ProdukController::class);
-        Route::resource('varian-produk', VarianProdukController::class)->only(['store', 'update', 'destroy']);
+        Route::resource('varian-produk', VarianProdukController::class)->only(['store', 'update']);
         Route::resource('stok-barang', StokBarangController::class)->only('index');
     });
 

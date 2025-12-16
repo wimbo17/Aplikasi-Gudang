@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\storeTransaksiMasukRequest;
 use App\Models\KartuStok;
+use App\Models\LaporanKenaikanHarga;
 use App\Models\Transaksi;
 use App\Models\VarianProduk;
 use Carbon\Carbon;
@@ -82,21 +83,22 @@ class TransaksiMasukController extends Controller
             'pengirim' => $request->pengirim,
             'kontak' => $request->kontak,
         ]);
+        
         foreach ($items as $item) {
             $query = explode('-', $item['text']);
             $varian = VarianProduk::where('nomor_sku', $item['nomor_sku'])->first();
 
-            // if ($item['harga'] > $varian->harga_varian) {
-            //     LaporanKenaikanHarga::create([
-            //         'nomor_transaksi' => $nomorTransaksi,
-            //         'nomor_batch' => $item['nomor_batch'],
-            //         'nomor_sku' => $item['nomor_sku'],
-            //         'harga_lama' => $varian->harga_varian,
-            //         'harga_beli' => $item['harga'],
-            //         'kenaikan_harga' => $item['harga'] - $varian->harga_varian,
-            //         'jumlah_barang' => $item['qty'],
-            //     ]);
-            // }
+            if($item['harga'] > $varian->harga_varian){
+                LaporanKenaikanHarga::create([
+                    'nomor_transaksi'      => $nomorTransaksi,
+                    'nomor_batch'          => $item['nomor_batch'],
+                    'nomor_sku'            => $item['nomor_sku'],
+                    'harga_lama'           => $varian->harga_varian,
+                    'harga_beli'           => $item['harga'],
+                    'kenaikan_harga'       => $item['harga'] - $varian->harga_varian,
+                    'jumlah_barang'        => $item['qty'],
+                ]);
+            }
 
             $transaksi->items()->create([
                 'transaksi_id' => $transaksi->id,

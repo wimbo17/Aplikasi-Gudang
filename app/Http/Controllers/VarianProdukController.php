@@ -76,7 +76,7 @@ class VarianProdukController extends Controller
         ]);
     }
 
-     public function destroy($varian_produk)
+    public function destroy($varian_produk)
     {
         $varian = VarianProduk::findOrFail($varian_produk);
         Storage::disk('public')->delete('varian-produk/' . $varian->gambar_varian);
