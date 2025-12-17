@@ -39,7 +39,7 @@ class VarianProdukController extends Controller
 
         $existKenaikanHarga = LaporanKenaikanHarga::where('nomor_sku', $varian->nomor_sku)->where('is_confirmed', false)->first();
 
-        if ($request->stk_varian != $varian->stk_varian) {
+        if ($request->stok_varian != $varian->stok_varian) {
             $isAdjustment = true;
         }
 
@@ -53,7 +53,7 @@ class VarianProdukController extends Controller
         $varian->update([
             'nama_varian' => $request->nama_varian,
             'harga_varian' => $request->harga_varian,
-            'stk_varian' => $request->stk_varian,
+            'stok_varian' => $request->stok_varian,
             'gambar_varian' => $fileName,
         ]);
 
@@ -67,7 +67,7 @@ class VarianProdukController extends Controller
             KartuStok::create([
                 'jenis_transaksi' => 'adjustment',
                 'nomor_sku' => $varian->nomor_sku,
-                'stok_akhir' => $request->stk_varian,
+                'stok_akhir' => $request->stok_varian,
                 'petugas' => Auth::user()->name,
             ]);
         }

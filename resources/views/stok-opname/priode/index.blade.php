@@ -1,0 +1,55 @@
+@extends('layouts.kai')
+@section('page_title', $pageTitle)
+@section('content')
+    <div class="card p-5">
+        <div class="d-flex justify-content-end">
+            <x-stok-opname.form-priode-stok-opname />
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Priode</th>
+                    <th>Jumlah Barang</th>
+                    <th>Jumlah Barang Sesuai</th>
+                    <th>Jumlah Barang Selisih</th>
+                    <th>Status Kerja</th>
+                    <th>Pelaporan Stok Opname</th>
+                    <th>Opsi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse ($dataPriode as $index => $item)
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $item['priode'] }}</td>
+                        <td>{{ $item['jumlah_barang'] }}</td>
+                        <td>{{ $item['jumlah_barang_sesuai'] }}</td>
+                        <td>{{ $item['jumlah_barang_selisih'] }}</td>
+                        <td>{{ $item['is_active'] ? 'Aktif' : 'Tidak Aktif' }}</td>
+                        <td>
+                            <span
+                                class="badge text-white {{ $item['is_completed'] ? 'bg-success' : 'bg-danger' }} px-2 py-1">
+                                {{ $item['is_completed'] ? 'Lengkap' : 'belum Lengkap' }}
+                            </span>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center gap-1">
+                                <a href="{{ route('stok-opname.priode.show', $item['id']) }}"
+                                    class="btn btn-info btn-icon btn-round">
+                                    <i class="fas fa-book"></i>
+                                </a>
+                                <x-stok-opname.form-priode-stok-opname id="{{ $item['id'] }}" />
+                                <x-confirm-delete id="{{ $item['id'] }}" route="stok-opname.priode.destroy" />
+                            </div>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="8" class="text-center">Belum Ada Data Stok Priode Opname</td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
+@endsection
