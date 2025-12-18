@@ -52,10 +52,10 @@
                 <div class="main-header-logo">
                     <!-- Logo Header -->
                     <div class="logo-header" data-background-color="dark">
-                        <a href="index.html" class="logo">
+                        {{-- <a href="index.html" class="logo">
                             <img src="{{ asset('template') }}/assets/img/kaiadmin/logo_light.svg" alt="navbar brand"
                                 class="navbar-brand" height="20" />
-                        </a>
+                        </a> --}}
                         <div class="nav-toggle">
                             <button class="btn btn-toggle toggle-sidebar">
                                 <i class="gg-menu-right"></i>
@@ -79,10 +79,10 @@
                             <li class="nav-item topbar-user dropdown hidden-caret">
                                 <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#"
                                     aria-expanded="false">
-                                    <div class="avatar-sm">
+                                    {{-- <div class="avatar-sm">
                                         <img src="{{ asset('template') }}/assets/img/profile.jpg" alt="..."
                                             class="avatar-img rounded-circle" />
-                                    </div>
+                                    </div> --}}
                                     <span class="profile-username">
                                         <span class="op-7">Hi,</span>
                                         <span class="fw-bold">{{ auth()->user()->name }}</span>
@@ -92,10 +92,10 @@
                                     <div class="dropdown-user-scroll scrollbar-outer">
                                         <li>
                                             <div class="user-box">
-                                                <div class="avatar-lg">
+                                                {{-- <div class="avatar-lg">
                                                     <img src="{{ asset('template') }}/assets/img/profile.jpg"
                                                         alt="image profile" class="avatar-img rounded" />
-                                                </div>
+                                                </div> --}}
                                                 <div class="u-text">
                                                     <h4>{{ auth()->user()->name }}</h4>
                                                     <p class="text-muted">{{ auth()->user()->email }}</p>

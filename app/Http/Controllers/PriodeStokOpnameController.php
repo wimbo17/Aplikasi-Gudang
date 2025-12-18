@@ -16,7 +16,7 @@ class PriodeStokOpnameController extends Controller
     public function index()
     {
 
-        confirmDelete('Menghapus data Priode kan menghapus semua data stok opname, apakah anda yakin ?');
+        confirmDelete('Menghapus data Priode akan menghapus semua data stok opname, apakah anda yakin ?');
         $pageTitle = $this->pageTitle;
         $dataPriode = PriodeStokOpname::orderBy('created_at', 'DESC')->get()->map(function ($q) {
             $tanggalMulai = Carbon::parse($q->tanggal_mulai)->locale('id')->translatedFormat('d M Y');
