@@ -2,7 +2,7 @@
     <div class="sidebar-logo">
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="white">
-            <a href="index.html" class="logo">
+            <a href="" class="logo">
                 <img src="{{ asset('template') }}/assets/img/kaiadmin/logo_gudangku.png" alt="navbar brand"
                     class="navbar-brand" height="80" />
             </a>

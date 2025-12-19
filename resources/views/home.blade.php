@@ -11,12 +11,11 @@
         </div>
     </div>
 
-    {{-- SECTION 1: TOP ANALYTICS SUMMARY --}}
-    <div class="row mt-5">
-        {{-- Card 1: Total Transactions (Orange) --}}
-        <div class="col-sm-6 col-md-3">
-            <div class="card card-stats card-round h-100" style="background-color: #fd7e14; color: white;">
-                <div class="card-body">
+    <div class="row mt-4">
+
+        <div class="col-sm-6 col-md-3 mb-4">
+            <div class="card card-stats card-round" style="background-color: #fd7e14; color: white;">
+                <div class="card-body p-3">
                     <div class="row align-items-center">
                         <div class="col-icon">
                             <div class="icon-big text-center icon-white bubble-shadow-small">
@@ -25,9 +24,12 @@
                         </div>
                         <div class="col col-stats ms-3 ms-sm-0">
                             <div class="numbers text-white">
-                                <p class="card-category text-white op-8">Total Transaksi</p>
-                                <h4 class="card-title mb-1 mt-1">{{ number_format($totalItemsIn) }} Transaksi Masuk</h4>
-                                <h4 class="card-title">{{ number_format($totalItemsOut) }} Transaksi Keluar</h4>
+                                <p class="card-category text-white op-8 mb-1" style="font-size: 0.85rem;">Total Transaksi
+                                </p>
+                                <h4 class="card-title mb-0" style="font-size: 1.1rem;">{{ number_format($totalItemsIn) }}
+                                    Masuk</h4>
+                                <h4 class="card-title mb-0" style="font-size: 1.1rem;">{{ number_format($totalItemsOut) }}
+                                    Keluar</h4>
                             </div>
                         </div>
                     </div>
@@ -35,10 +37,9 @@
             </div>
         </div>
 
-        {{-- Card 2: Expenses (Blue) --}}
-        <div class="col-sm-6 col-md-3">
-            <div class="card card-stats card-round h-100" style="background-color: #1572e8; color: white;">
-                <div class="card-body">
+        <div class="col-sm-6 col-md-3 mb-4">
+            <div class="card card-stats card-round" style="background-color: #1572e8; color: white;">
+                <div class="card-body p-3">
                     <div class="row align-items-center">
                         <div class="col-icon">
                             <div class="icon-big text-center icon-white bubble-shadow-small">
@@ -47,8 +48,9 @@
                         </div>
                         <div class="col col-stats ms-3 ms-sm-0">
                             <div class="numbers text-white">
-                                <p class="card-category text-white op-8">Biaya Keluar</p>
-                                <h4 class="card-title">Rp. {{ number_format($totalExpenses, 0, ',', '.') }}</h4>
+                                <p class="card-category text-white op-8 mb-1" style="font-size: 0.85rem;">Biaya Keluar</p>
+                                <h4 class="card-title mb-0" style="font-size: 1.25rem;">Rp.
+                                    {{ number_format($totalExpenses, 0, ',', '.') }}</h4>
                             </div>
                         </div>
                     </div>
@@ -56,10 +58,9 @@
             </div>
         </div>
 
-        {{-- Card 3: Revenue (Purple) --}}
-        <div class="col-sm-6 col-md-3">
-            <div class="card card-stats card-round h-100" style="background-color: #6861ce; color: white;">
-                <div class="card-body">
+        <div class="col-sm-6 col-md-3 mb-4">
+            <div class="card card-stats card-round" style="background-color: #6861ce; color: white;">
+                <div class="card-body p-3">
                     <div class="row align-items-center">
                         <div class="col-icon">
                             <div class="icon-big text-center icon-white bubble-shadow-small">
@@ -68,8 +69,9 @@
                         </div>
                         <div class="col col-stats ms-3 ms-sm-0">
                             <div class="numbers text-white">
-                                <p class="card-category text-white op-8">Biaya Diterima</p>
-                                <h4 class="card-title">Rp. {{ number_format($totalRevenue, 0, ',', '.') }}</h4>
+                                <p class="card-category text-white op-8 mb-1" style="font-size: 0.85rem;">Biaya Diterima</p>
+                                <h4 class="card-title mb-0" style="font-size: 1.25rem;">Rp.
+                                    {{ number_format($totalRevenue, 0, ',', '.') }}</h4>
                             </div>
                         </div>
                     </div>
@@ -77,10 +79,9 @@
             </div>
         </div>
 
-        {{-- Card 4: Profit Margin (Green) --}}
-        <div class="col-sm-6 col-md-3">
-            <div class="card card-stats card-round h-100" style="background-color: #31ce36; color: white;">
-                <div class="card-body">
+        <div class="col-sm-6 col-md-3 mb-4">
+            <div class="card card-stats card-round" style="background-color: #31ce36; color: white;">
+                <div class="card-body p-3">
                     <div class="row align-items-center">
                         <div class="col-icon">
                             <div class="icon-big text-center icon-white bubble-shadow-small">
@@ -89,8 +90,9 @@
                         </div>
                         <div class="col col-stats ms-3 ms-sm-0">
                             <div class="numbers text-white">
-                                <p class="card-category text-white op-8">Margin</p>
-                                <h4 class="card-title">Rp. {{ number_format($margin, 0, ',', '.') }}</h4>
+                                <p class="card-category text-white op-8 mb-1" style="font-size: 0.85rem;">Margin</p>
+                                <h4 class="card-title mb-0" style="font-size: 1.25rem;">Rp.
+                                    {{ number_format($margin, 0, ',', '.') }}</h4>
                             </div>
                         </div>
                     </div>
@@ -99,7 +101,6 @@
         </div>
     </div>
 
-    {{-- Revenue vs Expense Chart (Mixed) --}}
     <div class="row mt-5">
         <div class="col-md-12">
             <div class="card">
@@ -120,14 +121,12 @@
         </div>
     </div>
 
-    {{-- SECTION 2: STOCK & PRODUCT PERFORMANCE ANALYTICS --}}
     <div class="row">
-        {{-- 2.1 Low Stock Products Table (Left Column) --}}
         <div class="col-md-6">
             <div class="card card-stats card-round h-100">
-                <div class="card-header" style="background-color: #ffadad; color: #721c24;"> {{-- Light red for Low Stock --}}
-                    <h4 class="card-title" style="color: #721c24;">Produk dengan stok minimal</h4>
-                    <p class="card-category" style="color: #721c24;">Menampilkan produk dengan stok kurang dari 10 unit</p>
+                <div class="card-header" style="background-color: red; color: #721c24;">
+                    <h4 class="card-title" style="color: white;">Produk dengan stok minimal</h4>
+                    <p class="card-category" style="color: white;">Menampilkan produk dengan stok kurang dari 10 unit</p>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -169,12 +168,11 @@
             </div>
         </div>
 
-        {{-- 2.2 Best-Selling Products Chart (Right Column) --}}
         <div class="col-md-6">
             <div class="card h-100">
-                <div class="card-header" style="background-color: #20c997; color: white;"> {{-- Teal Color --}}
+                <div class="card-header" style="background-color: #31ce36; color: white;">
                     <h4 class="card-title text-white">Chart produk terlaris</h4>
-                    <p class="card-category text-white op-8">Produk dengan transaksi terbanyak</p>
+                    <p class="card-category text-white ">Produk dengan transaksi terbanyak</p>
                 </div>
                 <div class="card-body">
                     @if ($hasBestSellingData)
@@ -190,11 +188,10 @@
         </div>
     </div>
 
-    {{-- SECTION 3: PRODUCT PRICE INCREASE ANALYSIS --}}
     <div class="row mt-5">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header" style="background-color: #fd7e14; color: white;"> {{-- Orange Header --}}
+                <div class="card-header" style="background-color: #fd7e14; color: white;">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <h4 class="card-title text-white">Data Kenaikan Harga Produk</h4>
@@ -222,7 +219,6 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // 1. Revenue vs Expense Chart (Mixed: Bar + Line)
             @if ($hasIncomeExpenseData)
                 var incomeData = @json($incomeData);
                 var expenseData = @json($expenseData);
@@ -245,7 +241,7 @@
                             show: false
                         }
                     },
-                    colors: ['#fd7e14', '#31ce36'], // Orange (Expense), Green (Revenue)
+                    colors: ['#fd7e14', '#31ce36'],
                     stroke: {
                         width: [0, 4],
                         curve: 'smooth'
@@ -314,7 +310,6 @@
                 chartRevExp.render();
             @endif
 
-            // 2. Best Selling Products (Horizontal Bar)
             @if ($hasBestSellingData)
                 var bestSellingData = @json($bestSellingProducts);
                 var bestSellingNames = bestSellingData.map(item => item.produk + ' ' + item.varian);
@@ -333,13 +328,13 @@
                             show: false
                         }
                     },
-                    colors: ['#20c997'], // Teal
+                    colors: ['#20c997'],
                     plotOptions: {
                         bar: {
                             borderRadius: 4,
                             horizontal: true,
                             dataLabels: {
-                                position: 'center', // Show inside bar
+                                position: 'center',
                             }
                         }
                     },
@@ -368,10 +363,8 @@
                 chartBestSelling.render();
             @endif
 
-            // 3. Price Increase Visualization (Grouped Bar)
             @if ($hasPriceIncreaseData)
                 var priceIncreaseData = @json($priceIncreaseData);
-                // Limit names length if too long
                 var priceNames = priceIncreaseData.map(item => {
                     let name = (item.varian && item.varian.produk) ? item.varian.produk.nama_produk + ' ' +
                         item.varian.nama_varian : 'Item #' + item.id;
@@ -396,14 +389,14 @@
                             show: false
                         }
                     },
-                    colors: ['#fd7e14', '#31ce36'], // Orange (Old), Green (New)
+                    colors: ['#fd7e14', '#31ce36'],
                     plotOptions: {
                         bar: {
                             horizontal: false,
                             columnWidth: '55%',
-                            borderRadius: 4, // Replaced endingShape with borderRadius
+                            borderRadius: 4,
                             dataLabels: {
-                                position: 'top', // Show above bar
+                                position: 'top',
                             }
                         },
                     },
