@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>{{ env('APP_NAME') }}</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
-    <link rel="icon" href="{{ asset('template') }}/assets/img/kaiadmin/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="{{ asset('template') }}/assets/img/kaiadmin/logo_gudangku.png" type="image/x-icon" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Fonts and icons -->
@@ -92,10 +92,6 @@
                                     <div class="dropdown-user-scroll scrollbar-outer">
                                         <li>
                                             <div class="user-box">
-                                                {{-- <div class="avatar-lg">
-                                                    <img src="{{ asset('template') }}/assets/img/profile.jpg"
-                                                        alt="image profile" class="avatar-img rounded" />
-                                                </div> --}}
                                                 <div class="u-text">
                                                     <h4>{{ auth()->user()->name }}</h4>
                                                     <p class="text-muted">{{ auth()->user()->email }}</p>
@@ -142,30 +138,6 @@
                     @yield('content')
                 </div>
             </div>
-
-            {{-- <footer class="footer">
-                <div class="container-fluid d-flex justify-content-between">
-                    <nav class="pull-left">
-                        <ul class="nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="http://www.themekita.com">
-                                    ThemeKita
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"> Help </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"> Licenses </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="copyright">
-                        2025, made with <i class="fa fa-heart heart text-danger"></i> by
-                    </div>
-
-                </div>
-            </footer> --}}
         </div>
     </div>
     <!--   Core JS Files   -->
