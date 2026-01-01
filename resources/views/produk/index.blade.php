@@ -23,7 +23,7 @@
                 </div>
                 {{-- end form --}}
             </div>
-            <table class="table mt-5">
+            <table class="table mt-5 table-hover">
                 <thead>
                     <tr>
                         <th class="text-center" style="width: 15px;">No</th>
