@@ -1,8 +1,16 @@
-# Aplikasi Gudang Berbasis Web
+# Aplikasi Gudang Berbasis Web (Warehouse Management System)
 
-Aplikasi Gudang adalah sistem informasi berbasis web yang digunakan untuk mengelola persediaan barang di gudang secara terintegrasi. Sistem ini mendukung pengelolaan master data, transaksi barang, pengendalian stok, serta penyusunan laporan dan analisis.
+![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 
-Aplikasi dikembangkan menggunakan **Laravel Framework** dengan arsitektur **MVC (Model–View–Controller)** dan basis data **MySQL**.
+**Live Demo:** [http://inventory-app.my.id/](http://inventory-app.my.id/)
+
+## 📖 Gambaran Umum
+
+Aplikasi Gudang adalah sistem informasi berbasis web yang dirancang untuk mengelola persediaan barang di gudang secara efisien. Sistem ini menangani seluruh siklus inventaris mulai dari pengelolaan master data produk, pencatatan transaksi barang masuk dan keluar, retur, hingga pelacakan stok menggunakan kartu stok dan stok opname berbasis periode.
+
+Aplikasi ini juga menyediakan fitur pelaporan dan analisis untuk membantu pengambilan keputusan terkait persediaan barang.
 
 ---
 
